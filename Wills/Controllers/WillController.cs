@@ -25,21 +25,24 @@ namespace Wills.Controllers
             ApplicationUser _LoggedInUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
             //...Load the last client profile entered, if any
-            Client _LastClientProfile = new Client();
+            Client _LastClientProfile = null;
 
             using (WillsDatabaseEntities db = new WillsDatabaseEntities())
             {
                 _LastClientProfile = db.Clients.Where(x => x.UserId.Equals(_LoggedInUser.Id)).OrderByDescending(x => x.ClientID).FirstOrDefault();
             }
 
-            return View();
+            WillViewModel Model = new WillViewModel(_LastClientProfile);
+
+            return View(Model);
         }
 
         [Authorize]
         [HttpPost]
-        public ActionResult Create(int a)
+        public ActionResult Create(WillViewModel ins)
         {
-            return View();
+
+            return View(ins);
         }
     }
 }

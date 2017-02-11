@@ -1,0 +1,10 @@
+﻿@inherits System.Web.Mvc.WebViewPage<System.String>
+
+@{
+    var values = ViewData.ModelMetadata.AdditionalValues;
+    var name = ViewData.ModelMetadata.PropertyName;
+    var displayname = ViewData.ModelMetadata.DisplayName;
+}
+
+<gold-email-input label="@displayname" value="@Model" name="@name" id="@name" auto-validate></gold-email-input>
+

@@ -348,11 +348,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Document\WillAfrikaans.cshtml" />
     <Content Include="Views\Will\Index.cshtml" />
     <Content Include="Views\Will\Create.cshtml" />
     <Content Include="Views\Shared\_LayoutPDF.cshtml" />
-    <Content Include="Views\Document\WillEnglish.cshtml" />
+    <Content Include="Views\Document\WillEnglishT24.cshtml" />
+    <Content Include="Views\Document\WillAfrikaansT24.cshtml" />
+    <Content Include="Views\Document\WillAfrikaansT8.cshtml" />
+    <Content Include="Views\Document\WillEnglishT8.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

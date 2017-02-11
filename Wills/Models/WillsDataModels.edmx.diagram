@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="WillsDatabaseModel.Definition" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WillsDatabaseModel.Language" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WillsDatabaseModel.MariedType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.RelationShip" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="WillsDatabaseModel.RelationShip" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WillsDatabaseModel.sysdiagram" Width="1.5" PointX="7.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="WillsDatabaseModel.Will" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WillsDatabaseModel.WillAppointmentOFHeir" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />

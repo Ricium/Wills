@@ -41,6 +41,7 @@
         <AssociationConnector Association="WillsDatabaseModel.FK_WillAppointmentOFHeirs_Will" ManuallyRouted="false" />
         <AssociationConnector Association="WillsDatabaseModel.FK_WillDefinitions_Will" ManuallyRouted="false" />
         <AssociationConnector Association="WillsDatabaseModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="WillsDatabaseModel.FK_Client_AspNetUsers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

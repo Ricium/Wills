@@ -13,9 +13,11 @@ namespace Wills.Controllers
         {
             return View();
         }
-        public ActionResult WillAfrikaans()
+
+        public ActionResult DownloadViewPDF()
         {
-            return View();
+            //Code to get content
+            return new Rotativa.ViewAsPdf("Index") { FileName = "TestViewAsPdf.pdf" };
         }
     }
 }

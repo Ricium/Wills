@@ -13,5 +13,11 @@ namespace Wills.Controllers
         {
             return View();
         }
+
+        public ActionResult DownloadViewPDF()
+        {
+            //Code to get content
+            return new Rotativa.ViewAsPdf("Index") { FileName = "TestViewAsPdf.pdf" };
+        }
     }
 }

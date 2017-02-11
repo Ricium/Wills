@@ -26,13 +26,6 @@ namespace Wills.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
-
-        public ActionResult DownloadViewPDF()
-        {
-
-            //Code to get content
-            return new Rotativa.ViewAsPdf("Index") { FileName = "TestViewAsPdf.pdf" };
-        }
+        }        
     }
 }

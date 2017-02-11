@@ -28,10 +28,12 @@ namespace Wills.Models
         public string ContactNo { get; set; }
         public Nullable<int> LanguagesID { get; set; }
         public Nullable<int> MariedType { get; set; }
+        public string UserId { get; set; }
     
         public virtual Language Language { get; set; }
         public virtual MariedType MariedType1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClientWill> ClientWills { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

@@ -1,0 +1,23 @@
+﻿@model int
+
+@{
+    var values = ViewData.ModelMetadata.AdditionalValues;
+    var name = ViewData.ModelMetadata.PropertyName;
+    var displayname = ViewData.ModelMetadata.DisplayName;
+}
+
+@*<paper-dropdown-menu label="@displayname" name="@name" id="@name"
+                     attr-for-selected="value" selected="@Model">
+  <paper-listbox class="dropdown-content">
+    <paper-item value="1">Single</paper-item>
+    <paper-item value="2">Joint</paper-item>
+  </paper-listbox>
+</paper-dropdown-menu>*@
+
+
+<paper-dropdown-menu label="@displayname" attr-for-selected="value" on-iron-select="_itemSelected">
+    <paper-listbox class="dropdown-content">
+        <paper-item value="1">Single</paper-item>
+        <paper-item value="2">Joint</paper-item>
+    </paper-listbox>
+</paper-dropdown-menu>

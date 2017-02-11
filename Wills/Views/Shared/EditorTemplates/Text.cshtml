@@ -1,0 +1,22 @@
+﻿@inherits System.Web.Mvc.WebViewPage<System.String>
+
+@{
+    var values = ViewData.ModelMetadata.AdditionalValues;
+    var name = ViewData.ModelMetadata.PropertyName;
+    var displayname = ViewData.ModelMetadata.DisplayName;
+
+    var maxlength = values.ContainsKey("Max") ? values["Max"].ToString() : "";
+
+    var required = ViewData.ModelMetadata.IsRequired;
+}
+
+@if (maxlength.Equals(""))
+{
+    <paper-input label="@displayname" name="@name" id="@name"></paper-input>
+}
+else
+{
+    <paper-input label="@displayname" name="@name" id="@name" max-length="@maxlength"></paper-input>
+}
+
+

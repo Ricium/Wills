@@ -13,5 +13,9 @@ namespace Wills.Controllers
         {
             return View();
         }
+        public ActionResult WillAfrikaans()
+        {
+            return View();
+        }
     }
 }

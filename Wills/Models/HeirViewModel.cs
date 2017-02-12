@@ -17,5 +17,6 @@ namespace Wills.Models
         public Nullable<decimal> HeirPercentage { get; set; }
         public Nullable<decimal> BequestAmount { get; set; }
         public string BequestItem { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

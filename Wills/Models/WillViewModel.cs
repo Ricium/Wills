@@ -32,6 +32,8 @@ namespace Wills.Models
         public bool HasSpecialRequest { get; set; }
         public string SpecialRequest { get; set; }
 
-        List<HeirViewModel> Heirs { get; set; }
+        public List<HeirViewModel> Heirs { get; set; }
+
+        public List<HeirViewModel> Bequest { get; set; }
     }
 }

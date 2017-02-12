@@ -42,5 +42,6 @@ namespace Wills.Models
         [DisplayName("Bequest Item")]
         [StringLength(250)]
         public string BequestItem { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

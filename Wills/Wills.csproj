@@ -183,9 +183,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AppointmentOFHeir.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\AspNetRole.cs">
       <DependentUpon>WillsDataModels.tt</DependentUpon>
     </Compile>
@@ -198,44 +195,15 @@
     <Compile Include="Models\AspNetUserLogin.cs">
       <DependentUpon>WillsDataModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Bequeath.cs">
+    <Compile Include="Models\FullWill.cs">
       <DependentUpon>WillsDataModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BequeathType.cs">
+    <Compile Include="Models\HeirBequest.cs">
       <DependentUpon>WillsDataModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Client.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClientWill.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Definition.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\HeirViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Language.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MariedType.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RelationShip.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Will.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WillAppointmentOFHeir.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WillDefinition.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\WillsDataModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -250,9 +218,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WillsDataModels.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WillType.cs">
-      <DependentUpon>WillsDataModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WillViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -355,13 +320,16 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Document\WillAfrikaans.cshtml" />
-    <Content Include="Views\Will\Index.cshtml" />
-    <Content Include="Views\Will\Create.cshtml" />
     <Content Include="Views\Shared\_LayoutPDF.cshtml" />
     <Content Include="Views\Document\WillEnglish.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Text.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\WillType.cshtml" />
+    <Content Include="Views\Will\Create.cshtml" />
+    <Content Include="Views\Will\Delete.cshtml" />
+    <Content Include="Views\Will\Details.cshtml" />
+    <Content Include="Views\Will\Edit.cshtml" />
+    <Content Include="Views\Will\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

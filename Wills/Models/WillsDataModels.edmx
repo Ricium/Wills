@@ -5,16 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="WillsDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AppointmentOFHeirs">
-          <Key>
-            <PropertyRef Name="AppointmentOFHeirsID" />
-          </Key>
-          <Property Name="AppointmentOFHeirsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Surname" Type="varchar" MaxLength="50" />
-          <Property Name="IDNumDOB" Type="varchar" MaxLength="50" />
-          <Property Name="RelationShipID" Type="int" />
-        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -66,253 +56,50 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
-        <EntityType Name="Bequeath">
-          <Key>
-            <PropertyRef Name="BequeathID" />
-          </Key>
-          <Property Name="BequeathID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Surname" Type="varchar" MaxLength="50" />
-          <Property Name="IDNumberDOB" Type="varchar" MaxLength="20" />
-          <Property Name="ItemAmount" Type="varchar" MaxLength="200" />
-          <Property Name="BequeathTypeID" Type="int" />
-          <Property Name="RelationShipID" Type="int" />
-        </EntityType>
-        <EntityType Name="BequeathType">
-          <Key>
-            <PropertyRef Name="BequeathTypeID" />
-          </Key>
-          <Property Name="BequeathTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BequeathTypeDesc" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="ClientID" />
-          </Key>
-          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Surname" Type="varchar" MaxLength="50" />
-          <Property Name="IDNumDOB" Type="varchar" MaxLength="50" />
-          <Property Name="Email" Type="varchar" MaxLength="250" />
-          <Property Name="ContactNo" Type="varchar" MaxLength="20" />
-          <Property Name="LanguagesID" Type="int" />
-          <Property Name="MariedType" Type="int" />
-        </EntityType>
-        <EntityType Name="ClientWill">
-          <Key>
-            <PropertyRef Name="ClientWillID" />
-          </Key>
-          <Property Name="ClientWillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LanguagesID" Type="int" />
-          <Property Name="ClientID" Type="int" />
-          <Property Name="WillID" Type="int" />
-          <Property Name="BequeathID" Type="int" />
-          <Property Name="ApointmentOfHeirsID" Type="int" />
-        </EntityType>
-        <EntityType Name="Definitions">
-          <Key>
-            <PropertyRef Name="DefinitionsID" />
-          </Key>
-          <Property Name="DefinitionsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DefinitionsName" Type="varchar" MaxLength="50" />
-          <Property Name="DefinitionsDesc" Type="varchar(max)" />
-          <Property Name="LanguagesID" Type="int" />
-        </EntityType>
-        <EntityType Name="Languages">
-          <Key>
-            <PropertyRef Name="LanguagesID" />
-          </Key>
-          <Property Name="LanguagesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LanguagesDesc" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="MariedType">
-          <Key>
-            <PropertyRef Name="MariedTypeID" />
-          </Key>
-          <Property Name="MariedTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MarriedTypeDesc" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="RelationShip">
-          <Key>
-            <PropertyRef Name="RelationShipID" />
-          </Key>
-          <Property Name="RelationShipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RelationShipDesc" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="Will">
+        <EntityType Name="FullWill">
           <Key>
             <PropertyRef Name="WillID" />
           </Key>
           <Property Name="WillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WillTypeID" Type="int" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PrimaryClientName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrimaryClientSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrimaryClientIDNumber" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="SecandaryClientName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecanderyClientSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecandaryClientIDNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="WillTypeID" Type="int" Nullable="false" />
+          <Property Name="MaritalStatusID" Type="int" Nullable="false" />
+          <Property Name="GardianName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GardianSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="GardianIDNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoExecutorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoExecutorSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoExecutorIDNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoTrusteeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoTrusteeSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoTrusteeIDNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="DoCremation" Type="bit" Nullable="false" />
+          <Property Name="IsLivingWill" Type="bit" Nullable="false" />
+          <Property Name="IsOrganDoner" Type="bit" Nullable="false" />
+          <Property Name="HasSpecialRequest" Type="bit" Nullable="false" />
+          <Property Name="SpecialRequest" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="WillAppointmentOFHeirs">
+        <EntityType Name="HeirBequest">
           <Key>
-            <PropertyRef Name="WillAppointmentOFHeirsID" />
+            <PropertyRef Name="HeirID" />
           </Key>
-          <Property Name="WillAppointmentOFHeirsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WillID" Type="int" />
-          <Property Name="AppointmentOFHeirsID" Type="int" />
+          <Property Name="HeirID" Type="int" Nullable="false" />
+          <Property Name="FullWillID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RelationshipID" Type="int" Nullable="false" />
+          <Property Name="IsHeir" Type="bit" Nullable="false" />
+          <Property Name="HeirPercentage" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BequestAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BequestItem" Type="nvarchar" MaxLength="250" />
         </EntityType>
-        <EntityType Name="WillDefinitions">
-          <Key>
-            <PropertyRef Name="WillDefinitions" />
-          </Key>
-          <Property Name="WillDefinitions" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WillID" Type="int" />
-          <Property Name="DefinitionsID" Type="int" />
-        </EntityType>
-        <EntityType Name="WillType">
-          <Key>
-            <PropertyRef Name="WillTypeID" />
-          </Key>
-          <Property Name="WillTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WillDesc" Type="varchar" MaxLength="50" />
-          <Property Name="WillCode" Type="varchar" MaxLength="10" />
-        </EntityType>
-        <Association Name="FK_AppointmentOFHeirs_RelationShip">
-          <End Role="RelationShip" Type="Self.RelationShip" Multiplicity="0..1" />
-          <End Role="AppointmentOFHeirs" Type="Self.AppointmentOFHeirs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RelationShip">
-              <PropertyRef Name="RelationShipID" />
-            </Principal>
-            <Dependent Role="AppointmentOFHeirs">
-              <PropertyRef Name="RelationShipID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Bequeath_BequeathType">
-          <End Role="BequeathType" Type="Self.BequeathType" Multiplicity="0..1" />
-          <End Role="Bequeath" Type="Self.Bequeath" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BequeathType">
-              <PropertyRef Name="BequeathTypeID" />
-            </Principal>
-            <Dependent Role="Bequeath">
-              <PropertyRef Name="BequeathTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Bequeath_RelationShip">
-          <End Role="RelationShip" Type="Self.RelationShip" Multiplicity="0..1" />
-          <End Role="Bequeath" Type="Self.Bequeath" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RelationShip">
-              <PropertyRef Name="RelationShipID" />
-            </Principal>
-            <Dependent Role="Bequeath">
-              <PropertyRef Name="RelationShipID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Client_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Client_Languages">
-          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Languages">
-              <PropertyRef Name="LanguagesID" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="LanguagesID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Client_MariedType">
-          <End Role="MariedType" Type="Self.MariedType" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MariedType">
-              <PropertyRef Name="MariedTypeID" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="MariedType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_AppointmentOFHeirs">
-          <End Role="AppointmentOFHeirs" Type="Self.AppointmentOFHeirs" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppointmentOFHeirs">
-              <PropertyRef Name="AppointmentOFHeirsID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="ApointmentOfHeirsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_Bequeath">
-          <End Role="Bequeath" Type="Self.Bequeath" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Bequeath">
-              <PropertyRef Name="BequeathID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="BequeathID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ClientID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="ClientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_Languages">
-          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Languages">
-              <PropertyRef Name="LanguagesID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="LanguagesID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_Will">
-          <End Role="Will" Type="Self.Will" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Will">
-              <PropertyRef Name="WillID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="WillID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -369,130 +156,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Definitions_Languages">
-          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
-          <End Role="Definitions" Type="Self.Definitions" Multiplicity="*" />
+        <Association Name="FK_FullWill_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="FullWill" Type="Self.FullWill" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Languages">
-              <PropertyRef Name="LanguagesID" />
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Definitions">
-              <PropertyRef Name="LanguagesID" />
+            <Dependent Role="FullWill">
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Will_WillType">
-          <End Role="WillType" Type="Self.WillType" Multiplicity="0..1" />
-          <End Role="Will" Type="Self.Will" Multiplicity="*" />
+        <Association Name="FK_HeirBequest_FullWill">
+          <End Role="FullWill" Type="Self.FullWill" Multiplicity="1" />
+          <End Role="HeirBequest" Type="Self.HeirBequest" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="WillType">
-              <PropertyRef Name="WillTypeID" />
-            </Principal>
-            <Dependent Role="Will">
-              <PropertyRef Name="WillTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_WillAppointmentOFHeirs_Will">
-          <End Role="Will" Type="Self.Will" Multiplicity="0..1" />
-          <End Role="WillAppointmentOFHeirs" Type="Self.WillAppointmentOFHeirs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Will">
+            <Principal Role="FullWill">
               <PropertyRef Name="WillID" />
             </Principal>
-            <Dependent Role="WillAppointmentOFHeirs">
-              <PropertyRef Name="WillID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_WillDefinitions_Definitions">
-          <End Role="Definitions" Type="Self.Definitions" Multiplicity="0..1" />
-          <End Role="WillDefinitions" Type="Self.WillDefinitions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Definitions">
-              <PropertyRef Name="DefinitionsID" />
-            </Principal>
-            <Dependent Role="WillDefinitions">
-              <PropertyRef Name="DefinitionsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_WillDefinitions_Will">
-          <End Role="Will" Type="Self.Will" Multiplicity="0..1" />
-          <End Role="WillDefinitions" Type="Self.WillDefinitions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Will">
-              <PropertyRef Name="WillID" />
-            </Principal>
-            <Dependent Role="WillDefinitions">
-              <PropertyRef Name="WillID" />
+            <Dependent Role="HeirBequest">
+              <PropertyRef Name="FullWillID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="WillsDatabaseModelStoreContainer">
-          <EntitySet Name="AppointmentOFHeirs" EntityType="Self.AppointmentOFHeirs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Bequeath" EntityType="Self.Bequeath" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BequeathType" EntityType="Self.BequeathType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ClientWill" EntityType="Self.ClientWill" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Definitions" EntityType="Self.Definitions" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MariedType" EntityType="Self.MariedType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RelationShip" EntityType="Self.RelationShip" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Will" EntityType="Self.Will" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WillAppointmentOFHeirs" EntityType="Self.WillAppointmentOFHeirs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WillDefinitions" EntityType="Self.WillDefinitions" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WillType" EntityType="Self.WillType" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AppointmentOFHeirs_RelationShip" Association="Self.FK_AppointmentOFHeirs_RelationShip">
-            <End Role="RelationShip" EntitySet="RelationShip" />
-            <End Role="AppointmentOFHeirs" EntitySet="AppointmentOFHeirs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Bequeath_BequeathType" Association="Self.FK_Bequeath_BequeathType">
-            <End Role="BequeathType" EntitySet="BequeathType" />
-            <End Role="Bequeath" EntitySet="Bequeath" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Bequeath_RelationShip" Association="Self.FK_Bequeath_RelationShip">
-            <End Role="RelationShip" EntitySet="RelationShip" />
-            <End Role="Bequeath" EntitySet="Bequeath" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_AspNetUsers" Association="Self.FK_Client_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_Languages" Association="Self.FK_Client_Languages">
-            <End Role="Languages" EntitySet="Languages" />
-            <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_MariedType" Association="Self.FK_Client_MariedType">
-            <End Role="MariedType" EntitySet="MariedType" />
-            <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_AppointmentOFHeirs" Association="Self.FK_ClientWill_AppointmentOFHeirs">
-            <End Role="AppointmentOFHeirs" EntitySet="AppointmentOFHeirs" />
-            <End Role="ClientWill" EntitySet="ClientWill" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_Bequeath" Association="Self.FK_ClientWill_Bequeath">
-            <End Role="Bequeath" EntitySet="Bequeath" />
-            <End Role="ClientWill" EntitySet="ClientWill" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_Client" Association="Self.FK_ClientWill_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="ClientWill" EntitySet="ClientWill" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_Languages" Association="Self.FK_ClientWill_Languages">
-            <End Role="Languages" EntitySet="Languages" />
-            <End Role="ClientWill" EntitySet="ClientWill" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_Will" Association="Self.FK_ClientWill_Will">
-            <End Role="Will" EntitySet="Will" />
-            <End Role="ClientWill" EntitySet="ClientWill" />
-          </AssociationSet>
+          <EntitySet Name="FullWill" EntityType="Self.FullWill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeirBequest" EntityType="Self.HeirBequest" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -509,60 +204,64 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK_Definitions_Languages" Association="Self.FK_Definitions_Languages">
-            <End Role="Languages" EntitySet="Languages" />
-            <End Role="Definitions" EntitySet="Definitions" />
+          <AssociationSet Name="FK_FullWill_AspNetUsers" Association="Self.FK_FullWill_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="FullWill" EntitySet="FullWill" />
           </AssociationSet>
-          <AssociationSet Name="FK_Will_WillType" Association="Self.FK_Will_WillType">
-            <End Role="WillType" EntitySet="WillType" />
-            <End Role="Will" EntitySet="Will" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WillAppointmentOFHeirs_Will" Association="Self.FK_WillAppointmentOFHeirs_Will">
-            <End Role="Will" EntitySet="Will" />
-            <End Role="WillAppointmentOFHeirs" EntitySet="WillAppointmentOFHeirs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WillDefinitions_Definitions" Association="Self.FK_WillDefinitions_Definitions">
-            <End Role="Definitions" EntitySet="Definitions" />
-            <End Role="WillDefinitions" EntitySet="WillDefinitions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WillDefinitions_Will" Association="Self.FK_WillDefinitions_Will">
-            <End Role="Will" EntitySet="Will" />
-            <End Role="WillDefinitions" EntitySet="WillDefinitions" />
+          <AssociationSet Name="FK_HeirBequest_FullWill" Association="Self.FK_HeirBequest_FullWill">
+            <End Role="FullWill" EntitySet="FullWill" />
+            <End Role="HeirBequest" EntitySet="HeirBequest" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WillsDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AppointmentOFHeir">
-          <Key>
-            <PropertyRef Name="AppointmentOFHeirsID" />
-          </Key>
-          <Property Name="AppointmentOFHeirsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IDNumDOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RelationShipID" Type="Int32" />
-          <NavigationProperty Name="RelationShip" Relationship="Self.FK_AppointmentOFHeirs_RelationShip" FromRole="AppointmentOFHeirs" ToRole="RelationShip" />
-          <NavigationProperty Name="ClientWills" Relationship="Self.FK_ClientWill_AppointmentOFHeirs" FromRole="AppointmentOFHeirs" ToRole="ClientWill" />
-        </EntityType>
+        <EntityContainer Name="WillsDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="WillsDatabaseModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="WillsDatabaseModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="WillsDatabaseModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="WillsDatabaseModel.AspNetUser" />
+          <EntitySet Name="FullWills" EntityType="WillsDatabaseModel.FullWill" />
+          <EntitySet Name="HeirBequests" EntityType="WillsDatabaseModel.HeirBequest" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="WillsDatabaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="WillsDatabaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FullWill_AspNetUsers" Association="WillsDatabaseModel.FK_FullWill_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="FullWill" EntitySet="FullWills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeirBequest_FullWill" Association="WillsDatabaseModel.FK_HeirBequest_FullWill">
+            <End Role="FullWill" EntitySet="FullWills" />
+            <End Role="HeirBequest" EntitySet="HeirBequests" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="WillsDatabaseModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="AspNetRole">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="WillsDatabaseModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserClaim">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser" Relationship="WillsDatabaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserLogin">
           <Key>
@@ -570,16 +269,16 @@
             <PropertyRef Name="ProviderKey" />
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="WillsDatabaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -590,475 +289,114 @@
           <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
-          <NavigationProperty Name="Clients" Relationship="WillsDatabaseModel.FK_Client_AspNetUsers" FromRole="AspNetUser" ToRole="Client" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="WillsDatabaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="WillsDatabaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="FullWills" Relationship="WillsDatabaseModel.FK_FullWill_AspNetUsers" FromRole="AspNetUser" ToRole="FullWill" />
+          <NavigationProperty Name="AspNetRoles" Relationship="WillsDatabaseModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
         </EntityType>
-        <EntityType Name="Bequeath">
-          <Key>
-            <PropertyRef Name="BequeathID" />
-          </Key>
-          <Property Name="BequeathID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IDNumberDOB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ItemAmount" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="BequeathTypeID" Type="Int32" />
-          <Property Name="RelationShipID" Type="Int32" />
-          <NavigationProperty Name="BequeathType" Relationship="Self.FK_Bequeath_BequeathType" FromRole="Bequeath" ToRole="BequeathType" />
-          <NavigationProperty Name="RelationShip" Relationship="Self.FK_Bequeath_RelationShip" FromRole="Bequeath" ToRole="RelationShip" />
-          <NavigationProperty Name="ClientWills" Relationship="Self.FK_ClientWill_Bequeath" FromRole="Bequeath" ToRole="ClientWill" />
-        </EntityType>
-        <EntityType Name="BequeathType">
-          <Key>
-            <PropertyRef Name="BequeathTypeID" />
-          </Key>
-          <Property Name="BequeathTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BequeathTypeDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Bequeaths" Relationship="Self.FK_Bequeath_BequeathType" FromRole="BequeathType" ToRole="Bequeath" />
-        </EntityType>
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="ClientID" />
-          </Key>
-          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IDNumDOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="ContactNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="LanguagesID" Type="Int32" />
-          <Property Name="MariedType" Type="Int32" />
-          <NavigationProperty Name="Language" Relationship="Self.FK_Client_Languages" FromRole="Client" ToRole="Languages" />
-          <NavigationProperty Name="MariedType1" Relationship="Self.FK_Client_MariedType" FromRole="Client" ToRole="MariedType" />
-          <NavigationProperty Name="ClientWills" Relationship="Self.FK_ClientWill_Client" FromRole="Client" ToRole="ClientWill" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="WillsDatabaseModel.FK_Client_AspNetUsers" FromRole="Client" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="ClientWill">
-          <Key>
-            <PropertyRef Name="ClientWillID" />
-          </Key>
-          <Property Name="ClientWillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LanguagesID" Type="Int32" />
-          <Property Name="ClientID" Type="Int32" />
-          <Property Name="WillID" Type="Int32" />
-          <Property Name="BequeathID" Type="Int32" />
-          <Property Name="ApointmentOfHeirsID" Type="Int32" />
-          <NavigationProperty Name="AppointmentOFHeir" Relationship="Self.FK_ClientWill_AppointmentOFHeirs" FromRole="ClientWill" ToRole="AppointmentOFHeirs" />
-          <NavigationProperty Name="Bequeath" Relationship="Self.FK_ClientWill_Bequeath" FromRole="ClientWill" ToRole="Bequeath" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_ClientWill_Client" FromRole="ClientWill" ToRole="Client" />
-          <NavigationProperty Name="Language" Relationship="Self.FK_ClientWill_Languages" FromRole="ClientWill" ToRole="Languages" />
-          <NavigationProperty Name="Will" Relationship="Self.FK_ClientWill_Will" FromRole="ClientWill" ToRole="Will" />
-        </EntityType>
-        <EntityType Name="Definition">
-          <Key>
-            <PropertyRef Name="DefinitionsID" />
-          </Key>
-          <Property Name="DefinitionsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DefinitionsName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DefinitionsDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="LanguagesID" Type="Int32" />
-          <NavigationProperty Name="Language" Relationship="Self.FK_Definitions_Languages" FromRole="Definitions" ToRole="Languages" />
-          <NavigationProperty Name="WillDefinitions" Relationship="Self.FK_WillDefinitions_Definitions" FromRole="Definitions" ToRole="WillDefinitions" />
-        </EntityType>
-        <EntityType Name="Language">
-          <Key>
-            <PropertyRef Name="LanguagesID" />
-          </Key>
-          <Property Name="LanguagesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LanguagesDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Clients" Relationship="Self.FK_Client_Languages" FromRole="Languages" ToRole="Client" />
-          <NavigationProperty Name="ClientWills" Relationship="Self.FK_ClientWill_Languages" FromRole="Languages" ToRole="ClientWill" />
-          <NavigationProperty Name="Definitions" Relationship="Self.FK_Definitions_Languages" FromRole="Languages" ToRole="Definitions" />
-        </EntityType>
-        <EntityType Name="MariedType">
-          <Key>
-            <PropertyRef Name="MariedTypeID" />
-          </Key>
-          <Property Name="MariedTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MarriedTypeDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Clients" Relationship="Self.FK_Client_MariedType" FromRole="MariedType" ToRole="Client" />
-        </EntityType>
-        <EntityType Name="RelationShip">
-          <Key>
-            <PropertyRef Name="RelationShipID" />
-          </Key>
-          <Property Name="RelationShipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RelationShipDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="AppointmentOFHeirs" Relationship="Self.FK_AppointmentOFHeirs_RelationShip" FromRole="RelationShip" ToRole="AppointmentOFHeirs" />
-          <NavigationProperty Name="Bequeaths" Relationship="Self.FK_Bequeath_RelationShip" FromRole="RelationShip" ToRole="Bequeath" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Will">
+        <EntityType Name="FullWill">
           <Key>
             <PropertyRef Name="WillID" />
           </Key>
           <Property Name="WillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WillTypeID" Type="Int32" />
-          <NavigationProperty Name="ClientWills" Relationship="Self.FK_ClientWill_Will" FromRole="Will" ToRole="ClientWill" />
-          <NavigationProperty Name="WillType" Relationship="Self.FK_Will_WillType" FromRole="Will" ToRole="WillType" />
-          <NavigationProperty Name="WillAppointmentOFHeirs" Relationship="Self.FK_WillAppointmentOFHeirs_Will" FromRole="Will" ToRole="WillAppointmentOFHeirs" />
-          <NavigationProperty Name="WillDefinitions" Relationship="Self.FK_WillDefinitions_Will" FromRole="Will" ToRole="WillDefinitions" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PrimaryClientName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrimaryClientSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrimaryClientIDNumber" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="SecandaryClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SecanderyClientSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SecandaryClientIDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WillTypeID" Type="Int32" Nullable="false" />
+          <Property Name="MaritalStatusID" Type="Int32" Nullable="false" />
+          <Property Name="GardianName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GardianSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GardianIDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CoExecutorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CoExecutorSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CoExecutorIDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CoTrusteeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CoTrusteeSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CoTrusteeIDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoCremation" Type="Boolean" Nullable="false" />
+          <Property Name="IsLivingWill" Type="Boolean" Nullable="false" />
+          <Property Name="IsOrganDoner" Type="Boolean" Nullable="false" />
+          <Property Name="HasSpecialRequest" Type="Boolean" Nullable="false" />
+          <Property Name="SpecialRequest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="WillsDatabaseModel.FK_FullWill_AspNetUsers" FromRole="FullWill" ToRole="AspNetUser" />
+          <NavigationProperty Name="HeirBequests" Relationship="WillsDatabaseModel.FK_HeirBequest_FullWill" FromRole="FullWill" ToRole="HeirBequest" />
         </EntityType>
-        <EntityType Name="WillAppointmentOFHeir">
+        <EntityType Name="HeirBequest">
           <Key>
-            <PropertyRef Name="WillAppointmentOFHeirsID" />
+            <PropertyRef Name="HeirID" />
           </Key>
-          <Property Name="WillAppointmentOFHeirsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WillID" Type="Int32" />
-          <Property Name="AppointmentOFHeirsID" Type="Int32" />
-          <NavigationProperty Name="Will" Relationship="Self.FK_WillAppointmentOFHeirs_Will" FromRole="WillAppointmentOFHeirs" ToRole="Will" />
+          <Property Name="HeirID" Type="Int32" Nullable="false" />
+          <Property Name="FullWillID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RelationshipID" Type="Int32" Nullable="false" />
+          <Property Name="IsHeir" Type="Boolean" Nullable="false" />
+          <Property Name="HeirPercentage" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BequestAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BequestItem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FullWill" Relationship="WillsDatabaseModel.FK_HeirBequest_FullWill" FromRole="HeirBequest" ToRole="FullWill" />
         </EntityType>
-        <EntityType Name="WillDefinition">
-          <Key>
-            <PropertyRef Name="WillDefinitions" />
-          </Key>
-          <Property Name="WillDefinitions" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WillID" Type="Int32" />
-          <Property Name="DefinitionsID" Type="Int32" />
-          <NavigationProperty Name="Definition" Relationship="Self.FK_WillDefinitions_Definitions" FromRole="WillDefinitions" ToRole="Definitions" />
-          <NavigationProperty Name="Will" Relationship="Self.FK_WillDefinitions_Will" FromRole="WillDefinitions" ToRole="Will" />
-        </EntityType>
-        <EntityType Name="WillType">
-          <Key>
-            <PropertyRef Name="WillTypeID" />
-          </Key>
-          <Property Name="WillTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WillDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="WillCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Wills" Relationship="Self.FK_Will_WillType" FromRole="WillType" ToRole="Will" />
-        </EntityType>
-        <Association Name="FK_AppointmentOFHeirs_RelationShip">
-          <End Role="RelationShip" Type="Self.RelationShip" Multiplicity="0..1" />
-          <End Role="AppointmentOFHeirs" Type="Self.AppointmentOFHeir" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RelationShip">
-              <PropertyRef Name="RelationShipID" />
-            </Principal>
-            <Dependent Role="AppointmentOFHeirs">
-              <PropertyRef Name="RelationShipID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_AppointmentOFHeirs">
-          <End Role="AppointmentOFHeirs" Type="Self.AppointmentOFHeir" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AppointmentOFHeirs">
-              <PropertyRef Name="AppointmentOFHeirsID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="ApointmentOfHeirsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+          <End Type="WillsDatabaseModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <End Type="WillsDatabaseModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
+            <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="AspNetUserClaims">
+            <Dependent Role="AspNetUserClaim">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+          <End Type="WillsDatabaseModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Bequeath_BequeathType">
-          <End Role="BequeathType" Type="Self.BequeathType" Multiplicity="0..1" />
-          <End Role="Bequeath" Type="Self.Bequeath" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BequeathType">
-              <PropertyRef Name="BequeathTypeID" />
-            </Principal>
-            <Dependent Role="Bequeath">
-              <PropertyRef Name="BequeathTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Bequeath_RelationShip">
-          <End Role="RelationShip" Type="Self.RelationShip" Multiplicity="0..1" />
-          <End Role="Bequeath" Type="Self.Bequeath" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RelationShip">
-              <PropertyRef Name="RelationShipID" />
-            </Principal>
-            <Dependent Role="Bequeath">
-              <PropertyRef Name="RelationShipID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_Bequeath">
-          <End Role="Bequeath" Type="Self.Bequeath" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Bequeath">
-              <PropertyRef Name="BequeathID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="BequeathID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Client_Languages">
-          <End Role="Languages" Type="Self.Language" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Languages">
-              <PropertyRef Name="LanguagesID" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="LanguagesID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Client_MariedType">
-          <End Role="MariedType" Type="Self.MariedType" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MariedType">
-              <PropertyRef Name="MariedTypeID" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="MariedType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ClientID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="ClientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_Languages">
-          <End Role="Languages" Type="Self.Language" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Languages">
-              <PropertyRef Name="LanguagesID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="LanguagesID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientWill_Will">
-          <End Role="Will" Type="Self.Will" Multiplicity="0..1" />
-          <End Role="ClientWill" Type="Self.ClientWill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Will">
-              <PropertyRef Name="WillID" />
-            </Principal>
-            <Dependent Role="ClientWill">
-              <PropertyRef Name="WillID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Definitions_Languages">
-          <End Role="Languages" Type="Self.Language" Multiplicity="0..1" />
-          <End Role="Definitions" Type="Self.Definition" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Languages">
-              <PropertyRef Name="LanguagesID" />
-            </Principal>
-            <Dependent Role="Definitions">
-              <PropertyRef Name="LanguagesID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_WillDefinitions_Definitions">
-          <End Role="Definitions" Type="Self.Definition" Multiplicity="0..1" />
-          <End Role="WillDefinitions" Type="Self.WillDefinition" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Definitions">
-              <PropertyRef Name="DefinitionsID" />
-            </Principal>
-            <Dependent Role="WillDefinitions">
-              <PropertyRef Name="DefinitionsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Will_WillType">
-          <End Role="WillType" Type="Self.WillType" Multiplicity="0..1" />
-          <End Role="Will" Type="Self.Will" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WillType">
-              <PropertyRef Name="WillTypeID" />
-            </Principal>
-            <Dependent Role="Will">
-              <PropertyRef Name="WillTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_WillAppointmentOFHeirs_Will">
-          <End Role="Will" Type="Self.Will" Multiplicity="0..1" />
-          <End Role="WillAppointmentOFHeirs" Type="Self.WillAppointmentOFHeir" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Will">
-              <PropertyRef Name="WillID" />
-            </Principal>
-            <Dependent Role="WillAppointmentOFHeirs">
-              <PropertyRef Name="WillID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_WillDefinitions_Will">
-          <End Role="Will" Type="Self.Will" Multiplicity="0..1" />
-          <End Role="WillDefinitions" Type="Self.WillDefinition" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Will">
-              <PropertyRef Name="WillID" />
-            </Principal>
-            <Dependent Role="WillDefinitions">
-              <PropertyRef Name="WillID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AspNetUserRoles">
-          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
-        </Association>
-        <EntityContainer Name="WillsDatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AppointmentOFHeirs" EntityType="Self.AppointmentOFHeir" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-          <EntitySet Name="Bequeaths" EntityType="Self.Bequeath" />
-          <EntitySet Name="BequeathTypes" EntityType="Self.BequeathType" />
-          <EntitySet Name="Clients" EntityType="Self.Client" />
-          <EntitySet Name="ClientWills" EntityType="Self.ClientWill" />
-          <EntitySet Name="Definitions" EntityType="Self.Definition" />
-          <EntitySet Name="Languages" EntityType="Self.Language" />
-          <EntitySet Name="MariedTypes" EntityType="Self.MariedType" />
-          <EntitySet Name="RelationShips" EntityType="Self.RelationShip" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="Wills" EntityType="Self.Will" />
-          <EntitySet Name="WillAppointmentOFHeirs" EntityType="Self.WillAppointmentOFHeir" />
-          <EntitySet Name="WillDefinitions" EntityType="Self.WillDefinition" />
-          <EntitySet Name="WillTypes" EntityType="Self.WillType" />
-          <AssociationSet Name="FK_AppointmentOFHeirs_RelationShip" Association="Self.FK_AppointmentOFHeirs_RelationShip">
-            <End Role="RelationShip" EntitySet="RelationShips" />
-            <End Role="AppointmentOFHeirs" EntitySet="AppointmentOFHeirs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_AppointmentOFHeirs" Association="Self.FK_ClientWill_AppointmentOFHeirs">
-            <End Role="AppointmentOFHeirs" EntitySet="AppointmentOFHeirs" />
-            <End Role="ClientWill" EntitySet="ClientWills" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Bequeath_BequeathType" Association="Self.FK_Bequeath_BequeathType">
-            <End Role="BequeathType" EntitySet="BequeathTypes" />
-            <End Role="Bequeath" EntitySet="Bequeaths" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Bequeath_RelationShip" Association="Self.FK_Bequeath_RelationShip">
-            <End Role="RelationShip" EntitySet="RelationShips" />
-            <End Role="Bequeath" EntitySet="Bequeaths" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_Bequeath" Association="Self.FK_ClientWill_Bequeath">
-            <End Role="Bequeath" EntitySet="Bequeaths" />
-            <End Role="ClientWill" EntitySet="ClientWills" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_Languages" Association="Self.FK_Client_Languages">
-            <End Role="Languages" EntitySet="Languages" />
-            <End Role="Client" EntitySet="Clients" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_MariedType" Association="Self.FK_Client_MariedType">
-            <End Role="MariedType" EntitySet="MariedTypes" />
-            <End Role="Client" EntitySet="Clients" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_Client" Association="Self.FK_ClientWill_Client">
-            <End Role="Client" EntitySet="Clients" />
-            <End Role="ClientWill" EntitySet="ClientWills" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_Languages" Association="Self.FK_ClientWill_Languages">
-            <End Role="Languages" EntitySet="Languages" />
-            <End Role="ClientWill" EntitySet="ClientWills" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientWill_Will" Association="Self.FK_ClientWill_Will">
-            <End Role="Will" EntitySet="Wills" />
-            <End Role="ClientWill" EntitySet="ClientWills" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Definitions_Languages" Association="Self.FK_Definitions_Languages">
-            <End Role="Languages" EntitySet="Languages" />
-            <End Role="Definitions" EntitySet="Definitions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WillDefinitions_Definitions" Association="Self.FK_WillDefinitions_Definitions">
-            <End Role="Definitions" EntitySet="Definitions" />
-            <End Role="WillDefinitions" EntitySet="WillDefinitions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Will_WillType" Association="Self.FK_Will_WillType">
-            <End Role="WillType" EntitySet="WillTypes" />
-            <End Role="Will" EntitySet="Wills" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WillAppointmentOFHeirs_Will" Association="Self.FK_WillAppointmentOFHeirs_Will">
-            <End Role="Will" EntitySet="Wills" />
-            <End Role="WillAppointmentOFHeirs" EntitySet="WillAppointmentOFHeirs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WillDefinitions_Will" Association="Self.FK_WillDefinitions_Will">
-            <End Role="Will" EntitySet="Wills" />
-            <End Role="WillDefinitions" EntitySet="WillDefinitions" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_AspNetUsers" Association="WillsDatabaseModel.FK_Client_AspNetUsers">
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-            <End Role="Client" EntitySet="Clients" />
-          </AssociationSet>
-        </EntityContainer>
-        <Association Name="FK_Client_AspNetUsers">
-          <End Type="WillsDatabaseModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
-          <End Type="WillsDatabaseModel.Client" Role="Client" Multiplicity="*" />
+          <End Type="WillsDatabaseModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Client">
+            <Dependent Role="AspNetUserLogin">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FullWill_AspNetUsers">
+          <End Type="WillsDatabaseModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="WillsDatabaseModel.FullWill" Role="FullWill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FullWill">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeirBequest_FullWill">
+          <End Type="WillsDatabaseModel.FullWill" Role="FullWill" Multiplicity="1" />
+          <End Type="WillsDatabaseModel.HeirBequest" Role="HeirBequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FullWill">
+              <PropertyRef Name="WillID" />
+            </Principal>
+            <Dependent Role="HeirBequest">
+              <PropertyRef Name="FullWillID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="WillsDatabaseModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="WillsDatabaseModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1066,196 +404,103 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="WillsDatabaseModelStoreContainer" CdmEntityContainer="WillsDatabaseEntities">
-          <EntitySetMapping Name="AppointmentOFHeirs">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.AppointmentOFHeir">
-              <MappingFragment StoreEntitySet="AppointmentOFHeirs">
-                <ScalarProperty Name="AppointmentOFHeirsID" ColumnName="AppointmentOFHeirsID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="IDNumDOB" ColumnName="IDNumDOB" />
-                <ScalarProperty Name="RelationShipID" ColumnName="RelationShipID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="WillsDatabaseModel.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
             <EntityTypeMapping TypeName="WillsDatabaseModel.AspNetUserClaim">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
                 <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
             <EntityTypeMapping TypeName="WillsDatabaseModel.AspNetUserLogin">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="WillsDatabaseModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Bequeaths">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.Bequeath">
-              <MappingFragment StoreEntitySet="Bequeath">
-                <ScalarProperty Name="BequeathID" ColumnName="BequeathID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="IDNumberDOB" ColumnName="IDNumberDOB" />
-                <ScalarProperty Name="ItemAmount" ColumnName="ItemAmount" />
-                <ScalarProperty Name="BequeathTypeID" ColumnName="BequeathTypeID" />
-                <ScalarProperty Name="RelationShipID" ColumnName="RelationShipID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BequeathTypes">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.BequeathType">
-              <MappingFragment StoreEntitySet="BequeathType">
-                <ScalarProperty Name="BequeathTypeID" ColumnName="BequeathTypeID" />
-                <ScalarProperty Name="BequeathTypeDesc" ColumnName="BequeathTypeDesc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Clients">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.Client">
-              <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="IDNumDOB" ColumnName="IDNumDOB" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="LanguagesID" ColumnName="LanguagesID" />
-                <ScalarProperty Name="MariedType" ColumnName="MariedType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ClientWills">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.ClientWill">
-              <MappingFragment StoreEntitySet="ClientWill">
-                <ScalarProperty Name="ClientWillID" ColumnName="ClientWillID" />
-                <ScalarProperty Name="LanguagesID" ColumnName="LanguagesID" />
-                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
-                <ScalarProperty Name="WillID" ColumnName="WillID" />
-                <ScalarProperty Name="BequeathID" ColumnName="BequeathID" />
-                <ScalarProperty Name="ApointmentOfHeirsID" ColumnName="ApointmentOfHeirsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Definitions">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.Definition">
-              <MappingFragment StoreEntitySet="Definitions">
-                <ScalarProperty Name="DefinitionsID" ColumnName="DefinitionsID" />
-                <ScalarProperty Name="DefinitionsName" ColumnName="DefinitionsName" />
-                <ScalarProperty Name="DefinitionsDesc" ColumnName="DefinitionsDesc" />
-                <ScalarProperty Name="LanguagesID" ColumnName="LanguagesID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Languages">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.Language">
-              <MappingFragment StoreEntitySet="Languages">
-                <ScalarProperty Name="LanguagesID" ColumnName="LanguagesID" />
-                <ScalarProperty Name="LanguagesDesc" ColumnName="LanguagesDesc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MariedTypes">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.MariedType">
-              <MappingFragment StoreEntitySet="MariedType">
-                <ScalarProperty Name="MariedTypeID" ColumnName="MariedTypeID" />
-                <ScalarProperty Name="MarriedTypeDesc" ColumnName="MarriedTypeDesc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RelationShips">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.RelationShip">
-              <MappingFragment StoreEntitySet="RelationShip">
-                <ScalarProperty Name="RelationShipID" ColumnName="RelationShipID" />
-                <ScalarProperty Name="RelationShipDesc" ColumnName="RelationShipDesc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Wills">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.Will">
-              <MappingFragment StoreEntitySet="Will">
-                <ScalarProperty Name="WillID" ColumnName="WillID" />
+          <EntitySetMapping Name="FullWills">
+            <EntityTypeMapping TypeName="WillsDatabaseModel.FullWill">
+              <MappingFragment StoreEntitySet="FullWill">
+                <ScalarProperty Name="SpecialRequest" ColumnName="SpecialRequest" />
+                <ScalarProperty Name="HasSpecialRequest" ColumnName="HasSpecialRequest" />
+                <ScalarProperty Name="IsOrganDoner" ColumnName="IsOrganDoner" />
+                <ScalarProperty Name="IsLivingWill" ColumnName="IsLivingWill" />
+                <ScalarProperty Name="DoCremation" ColumnName="DoCremation" />
+                <ScalarProperty Name="CoTrusteeIDNumber" ColumnName="CoTrusteeIDNumber" />
+                <ScalarProperty Name="CoTrusteeSurname" ColumnName="CoTrusteeSurname" />
+                <ScalarProperty Name="CoTrusteeName" ColumnName="CoTrusteeName" />
+                <ScalarProperty Name="CoExecutorIDNumber" ColumnName="CoExecutorIDNumber" />
+                <ScalarProperty Name="CoExecutorSurname" ColumnName="CoExecutorSurname" />
+                <ScalarProperty Name="CoExecutorName" ColumnName="CoExecutorName" />
+                <ScalarProperty Name="GardianIDNumber" ColumnName="GardianIDNumber" />
+                <ScalarProperty Name="GardianSurname" ColumnName="GardianSurname" />
+                <ScalarProperty Name="GardianName" ColumnName="GardianName" />
+                <ScalarProperty Name="MaritalStatusID" ColumnName="MaritalStatusID" />
                 <ScalarProperty Name="WillTypeID" ColumnName="WillTypeID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WillAppointmentOFHeirs">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.WillAppointmentOFHeir">
-              <MappingFragment StoreEntitySet="WillAppointmentOFHeirs">
-                <ScalarProperty Name="WillAppointmentOFHeirsID" ColumnName="WillAppointmentOFHeirsID" />
+                <ScalarProperty Name="SecandaryClientIDNumber" ColumnName="SecandaryClientIDNumber" />
+                <ScalarProperty Name="SecanderyClientSurname" ColumnName="SecanderyClientSurname" />
+                <ScalarProperty Name="SecandaryClientName" ColumnName="SecandaryClientName" />
+                <ScalarProperty Name="PrimaryClientIDNumber" ColumnName="PrimaryClientIDNumber" />
+                <ScalarProperty Name="PrimaryClientSurname" ColumnName="PrimaryClientSurname" />
+                <ScalarProperty Name="PrimaryClientName" ColumnName="PrimaryClientName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="WillID" ColumnName="WillID" />
-                <ScalarProperty Name="AppointmentOFHeirsID" ColumnName="AppointmentOFHeirsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WillDefinitions">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.WillDefinition">
-              <MappingFragment StoreEntitySet="WillDefinitions">
-                <ScalarProperty Name="WillDefinitions" ColumnName="WillDefinitions" />
-                <ScalarProperty Name="WillID" ColumnName="WillID" />
-                <ScalarProperty Name="DefinitionsID" ColumnName="DefinitionsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WillTypes">
-            <EntityTypeMapping TypeName="WillsDatabaseModel.WillType">
-              <MappingFragment StoreEntitySet="WillType">
-                <ScalarProperty Name="WillTypeID" ColumnName="WillTypeID" />
-                <ScalarProperty Name="WillDesc" ColumnName="WillDesc" />
-                <ScalarProperty Name="WillCode" ColumnName="WillCode" />
+          <EntitySetMapping Name="HeirBequests">
+            <EntityTypeMapping TypeName="WillsDatabaseModel.HeirBequest">
+              <MappingFragment StoreEntitySet="HeirBequest">
+                <ScalarProperty Name="BequestItem" ColumnName="BequestItem" />
+                <ScalarProperty Name="BequestAmount" ColumnName="BequestAmount" />
+                <ScalarProperty Name="HeirPercentage" ColumnName="HeirPercentage" />
+                <ScalarProperty Name="IsHeir" ColumnName="IsHeir" />
+                <ScalarProperty Name="RelationshipID" ColumnName="RelationshipID" />
+                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FullWillID" ColumnName="FullWillID" />
+                <ScalarProperty Name="HeirID" ColumnName="HeirID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="WillsDatabaseModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetRoles">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-            <EndProperty Name="AspNetUsers">
+            <EndProperty Name="AspNetUser">
               <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

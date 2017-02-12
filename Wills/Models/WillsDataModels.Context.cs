@@ -25,23 +25,11 @@ namespace Wills.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AppointmentOFHeir> AppointmentOFHeirs { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<Bequeath> Bequeaths { get; set; }
-        public virtual DbSet<BequeathType> BequeathTypes { get; set; }
-        public virtual DbSet<Client> Clients { get; set; }
-        public virtual DbSet<ClientWill> ClientWills { get; set; }
-        public virtual DbSet<Definition> Definitions { get; set; }
-        public virtual DbSet<Language> Languages { get; set; }
-        public virtual DbSet<MariedType> MariedTypes { get; set; }
-        public virtual DbSet<RelationShip> RelationShips { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Will> Wills { get; set; }
-        public virtual DbSet<WillAppointmentOFHeir> WillAppointmentOFHeirs { get; set; }
-        public virtual DbSet<WillDefinition> WillDefinitions { get; set; }
-        public virtual DbSet<WillType> WillTypes { get; set; }
+        public virtual DbSet<FullWill> FullWills { get; set; }
+        public virtual DbSet<HeirBequest> HeirBequests { get; set; }
     }
 }

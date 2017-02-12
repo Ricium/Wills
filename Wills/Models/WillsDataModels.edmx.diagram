@@ -5,43 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="36f3cea492ae42ca902ba50b7193d656" Name="Diagram1">
-        <EntityTypeShape EntityType="WillsDatabaseModel.AppointmentOFHeir" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.AspNetRole" Width="1.5" PointX="7.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.AspNetUser" Width="1.5" PointX="10" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.Bequeath" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.BequeathType" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.Client" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.ClientWill" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.Definition" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.Language" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.MariedType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.RelationShip" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.sysdiagram" Width="1.5" PointX="7.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.Will" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.WillAppointmentOFHeir" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.WillDefinition" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WillsDatabaseModel.WillType" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_AppointmentOFHeirs_RelationShip" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_ClientWill_AppointmentOFHeirs" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_Bequeath_BequeathType" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_Bequeath_RelationShip" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_ClientWill_Bequeath" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_Client_Languages" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_Client_MariedType" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_ClientWill_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_ClientWill_Languages" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_ClientWill_Will" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_Definitions_Languages" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_WillDefinitions_Definitions" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_Will_WillType" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_WillAppointmentOFHeirs_Will" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_WillDefinitions_Will" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="WillsDatabaseModel.FK_Client_AspNetUsers" />
+        <EntityTypeShape EntityType="WillsDatabaseModel.AspNetRole" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="WillsDatabaseModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="10.75" />
+        <EntityTypeShape EntityType="WillsDatabaseModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="8.125" />
+        <EntityTypeShape EntityType="WillsDatabaseModel.AspNetUser" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="WillsDatabaseModel.FullWill" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="WillsDatabaseModel.HeirBequest" Width="1.5" PointX="7.5" PointY="2.875" />
+        <AssociationConnector Association="WillsDatabaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="WillsDatabaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="WillsDatabaseModel.FK_FullWill_AspNetUsers" />
+        <AssociationConnector Association="WillsDatabaseModel.FK_HeirBequest_FullWill" />
+        <AssociationConnector Association="WillsDatabaseModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

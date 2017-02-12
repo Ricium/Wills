@@ -1,10 +1,165 @@
-﻿
+﻿@model IEnumerable<Wills.Models.FullWill>
+
 @{
-    ViewBag.Title = "Will";
+    ViewBag.Title = "Index";
 }
 
-<h2>User wills</h2>
+<h2>Index</h2>
 
-<button>
-    <a href="@Url.Action("Create", "Will")">Create a new Will</a>
-</button>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryClientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryClientSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryClientIDNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecandaryClientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecanderyClientSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecandaryClientIDNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WillTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaritalStatusID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GardianName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GardianSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GardianIDNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoExecutorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoExecutorSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoExecutorIDNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoTrusteeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoTrusteeSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoTrusteeIDNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoCremation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsLivingWill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsOrganDoner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasSpecialRequest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpecialRequest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryClientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryClientSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryClientIDNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecandaryClientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecanderyClientSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecandaryClientIDNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WillTypeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaritalStatusID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GardianName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GardianSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GardianIDNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoExecutorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoExecutorSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoExecutorIDNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoTrusteeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoTrusteeSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoTrusteeIDNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoCremation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsLivingWill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsOrganDoner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasSpecialRequest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpecialRequest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WillID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WillID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WillID })
+        </td>
+    </tr>
+}
+
+</table>
